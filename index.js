@@ -1,10 +1,12 @@
 const express = require('express')
 const cors = require('cors')
 const RateLimit = require('express-rate-limit')
-const keys = require('./keys.js')
 
-if (!process.env.GOOGLE_API_KEY) process.env.GOOGLE_API_KEY = keys.GOOGLE_API_KEY
-if (!process.env.WEATHER_API_KEY) process.env.WEATHER_API_KEY = keys.WEATHER_API_KEY
+if (!process.env.GOOGLE_API_KEY || !process.env.WEATHER_API_KEY) {
+  const keys = require('./keys.js')
+  if (!process.env.GOOGLE_API_KEY) process.env.GOOGLE_API_KEY = keys.GOOGLE_API_KEY
+  if (!process.env.WEATHER_API_KEY) process.env.WEATHER_API_KEY = keys.WEATHER_API_KEY
+}
 
 const geocode = require('./routes/geocode.js')
 const weather = require('./routes/weather.js')
