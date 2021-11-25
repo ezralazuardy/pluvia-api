@@ -1,9 +1,8 @@
-const keys = require('../keys.js')
 const express = require('express')
 const weather = require('openweather-apis')
 
 const router = express.Router()
-weather.setAPPID(keys.weather)
+weather.setAPPID(process.env.WEATHER_API_KEY)
 weather.setLang('en')
 
 router.get('/weather/v1/json', (req, res) => {

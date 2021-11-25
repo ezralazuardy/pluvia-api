@@ -1,9 +1,8 @@
-const keys = require('../keys.js')
 const express = require('express')
 const googleMaps = require('@google/maps')
 
 const router = express.Router()
-const googleMapsClient = googleMaps.createClient({key: keys.google})
+const googleMapsClient = googleMaps.createClient({key: process.env.GOOGLE_API_KEY})
 
 router.get('/geocode/v1/json', (req, res) => {
   let latlng = req.query.latlng

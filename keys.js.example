@@ -3,8 +3,7 @@
  *  https://home.openweathermap.org/api_keys
  *  https://developers.google.com/maps/documentation/javascript/get-api-key
  */
-
 module.exports = {
-  darksky: 'KEY_HERE',
-  google: 'KEY_HERE'
+  GOOGLE_API_KEY: 'KEY_HERE',
+  WEATHER_API_KEY: 'KEY_HERE'
 }
