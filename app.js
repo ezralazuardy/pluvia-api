@@ -21,7 +21,7 @@ app.use(cors())
 app.use(limiter)
 app.use(geocode)
 app.use(weather)
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log('> Starting API server...')
   console.log('> Listening at http://localhost:' + this.address().port)
 })
