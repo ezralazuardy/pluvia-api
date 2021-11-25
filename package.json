@@ -12,6 +12,7 @@
     "@google/maps": "^0.4.6",
     "cors": "^2.8.4",
     "express": "^4.15.2",
-    "express-rate-limit": "^2.11.0"
+    "express-rate-limit": "^2.11.0",
+    "openweather-apis": "^4.4.2"
   }
 }
