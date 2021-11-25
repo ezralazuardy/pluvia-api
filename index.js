@@ -8,7 +8,7 @@ if (!process.env.WEATHER_API_KEY) process.env.WEATHER_API_KEY = keys.WEATHER_API
 
 const geocode = require('./routes/geocode.js')
 const weather = require('./routes/weather.js')
-const app = express()
+const index = express()
 
 // rate limiting
 const limiter = new RateLimit({
@@ -17,13 +17,13 @@ const limiter = new RateLimit({
   delayMs: 0 // disable delaying - full speed until the max limit is reached
 })
 
-app.use(cors())
-app.use(limiter)
-app.use(geocode)
-app.use(weather)
-app.listen(process.env.PORT || 3000, function () {
+index.use(cors())
+index.use(limiter)
+index.use(geocode)
+index.use(weather)
+index.listen(process.env.PORT || 3000, function () {
   console.log('> Starting API server...')
   console.log('> Listening at http://localhost:' + this.address().port)
 })
 
-module.exports = app
+module.exports = index

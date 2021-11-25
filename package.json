@@ -6,7 +6,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "@google/maps": "^0.4.6",
