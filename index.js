@@ -3,13 +3,14 @@ const cors = require('cors')
 const RateLimit = require('express-rate-limit')
 
 if (!process.env.GOOGLE_API_KEY || !process.env.WEATHER_API_KEY) {
-  const keys = require('./keys.js')
+  const keys = require('./keys')
   if (!process.env.GOOGLE_API_KEY) process.env.GOOGLE_API_KEY = keys.GOOGLE_API_KEY
   if (!process.env.WEATHER_API_KEY) process.env.WEATHER_API_KEY = keys.WEATHER_API_KEY
 }
 
-const geocode = require('./routes/geocode.js')
-const weather = require('./routes/weather.js')
+const landing = require('./routes/landing')
+const geocode = require('./routes/geocode')
+const weather = require('./routes/weather')
 const index = express()
 
 // rate limiting
@@ -21,6 +22,7 @@ const limiter = new RateLimit({
 
 index.use(cors())
 index.use(limiter)
+index.use(landing)
 index.use(geocode)
 index.use(weather)
 index.listen(process.env.PORT || 3000, function () {
